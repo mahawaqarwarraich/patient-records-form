@@ -1,0 +1,10 @@
+C:\Users\PMLS\Desktop\ControlsTutorial\bin\Debug\ControlsTutorial.exe.config
+C:\Users\PMLS\Desktop\ControlsTutorial\bin\Debug\ControlsTutorial.exe
+C:\Users\PMLS\Desktop\ControlsTutorial\bin\Debug\ControlsTutorial.pdb
+C:\Users\PMLS\Desktop\ControlsTutorial\obj\Debug\ControlsTutorial.csproj.AssemblyReference.cache
+C:\Users\PMLS\Desktop\ControlsTutorial\obj\Debug\ControlsTutorial.Form1.resources
+C:\Users\PMLS\Desktop\ControlsTutorial\obj\Debug\ControlsTutorial.Properties.Resources.resources
+C:\Users\PMLS\Desktop\ControlsTutorial\obj\Debug\ControlsTutorial.csproj.GenerateResource.cache
+C:\Users\PMLS\Desktop\ControlsTutorial\obj\Debug\ControlsTutorial.csproj.CoreCompileInputs.cache
+C:\Users\PMLS\Desktop\ControlsTutorial\obj\Debug\ControlsTutorial.exe
+C:\Users\PMLS\Desktop\ControlsTutorial\obj\Debug\ControlsTutorial.pdb
