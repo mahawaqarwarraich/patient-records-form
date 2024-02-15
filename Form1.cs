@@ -13,24 +13,28 @@ namespace ControlsTutorial
     public partial class Form1 : Form
     {
 
-        List<Patient> patients = new List<Patient>();
+        List<Patient> patients;
         int CurrentIndex;
         Patient CurrentPatient;
+        bool IsNew = false;
         public Form1()
         {
             InitializeComponent();
-            patients.Add(new Patient("maha", 1, DateTime.Now, GENDERTYPE.FEMALE, "maha@gmail.com"));
-            patients.Add(new Patient("ali", 2, DateTime.Now, GENDERTYPE.MALE, "ali@gmail.com"));
-            patients.Add(new Patient("saira", 1, DateTime.Now, GENDERTYPE.FEMALE, "saira@gmail.com"));
+            patients = PatientDBHelper.GetPatients();
+           
         }
 
       
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CurrentIndex = 0;
-            CurrentPatient = patients[CurrentIndex];
-            FromDataToGUI();
+            if (patients != null && patients.Count > 0)
+            {
+                CurrentIndex = 0;
+                CurrentPatient = patients[CurrentIndex];
+                FromDataToGUI();
+            }
+           
            
 
 
@@ -75,8 +79,10 @@ namespace ControlsTutorial
 
         private void newBtn_Click(object sender, EventArgs e)
         {
+            IsNew = true;
+            
             CurrentPatient = new Patient();
-            CurrentPatient.Id = patients.Count + 1;
+            CurrentPatient.Id = PatientDBHelper.GetNextId();
             FromDataToGUI();
 
 
@@ -86,10 +92,18 @@ namespace ControlsTutorial
         private void saveBtn_Click(object sender, EventArgs e)
         {
             FromGUIToData();
+            if (IsNew)
+            {
+                PatientDBHelper.AddPatient(CurrentPatient);
+                IsNew = false;
+            } else
+            {
+                PatientDBHelper.UpdatePatient(CurrentPatient);
+            }
 
-
+            
             patients.Add(CurrentPatient);
-            MessageBox.Show("Operation Successful!");
+            
 
 
         }
@@ -106,8 +120,10 @@ namespace ControlsTutorial
 
         private void dltBtn_Click(object sender, EventArgs e)
         {
+            PatientDBHelper.DeletePatient(CurrentPatient);
             patients.Remove(patients[CurrentIndex]);
-            MessageBox.Show("Deleted Successfully!");
+
+            
         }
     }
 }
